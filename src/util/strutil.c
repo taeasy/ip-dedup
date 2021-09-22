@@ -24,6 +24,14 @@ char* str_strip ( char* restrict str, size_t* const restrict len ) {
       str++;
       (*len)--;
    }
+   
+	for(size_t i = 0; i < strlen(str); i++){
+		if(str[i] == '#'){
+			str[i] = '\0';
+			*len = i;
+			break;
+		}
+	}
 
    while ( ((*len) > 0) && (is_whitespace(str[(*len) - 1])) ) {
       str[(*len) - 1] = '\0';
